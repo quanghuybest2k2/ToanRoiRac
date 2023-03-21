@@ -2,42 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Data;
-using System.ComponentModel;
-using System.IO;
-using Lab2;
+using System.Threading.Tasks;
 
 namespace Lab2
 {
-    class Program
+    public class MenuClass
     {
-        static int n, final;
-        static string FileName = "Data.txt";
-        static int[] a = new int[100];
-        static set A, B, U;
-        static void Main(string[] args)
-        {
-            /*
-            Console.WriteLine("Nhap vào gia tri cho n < 13.");
-            n = int.Parse(Console.ReadLine());
-            final = 1;
-            khoitao();
-            //XuatTatcaTapCon();
-            XuatTatcaTapConChar();
-            Console.ReadLine();
-            */
+        int n, final;
+        string FileName = "Data.txt";
+        int[] a = new int[100];
+        set A, B, U;
 
-            Console.Clear();
-            Menu();
-            while (true)
-            {
-                int t = XuLyMenu();
-                if (t == 0) break;
-            }
-            //Console.ReadLine();
-            Console.ReadKey();
+        public MenuClass()
+        {
+
         }
-        static int ChonMenu()
+        public int ChonMenu()
         {
             n = 0;
             try
@@ -55,9 +35,8 @@ namespace Lab2
                 return n;
             else return ChonMenu();
 
-
         }
-        static void Menu()
+        public void Menu()
         {
             Console.Write("=============================MENU===========================\n");
             Console.Write("1. NHAP TAP VU TRU U VA TAP HOP A VA TOP HOP B (TRUOC KHI THUC HIEN CAC MUC 2 DEN 8)\n");
@@ -71,7 +50,7 @@ namespace Lab2
             Console.Write("99. Thoat!!!\n");
             Console.Write("============================================================\n");
         }
-        static int XuLyMenu()
+        public int XuLyMenu()
         {
             int chon = ChonMenu();
             //int n;// a = 5; int b = 6;
@@ -190,11 +169,10 @@ namespace Lab2
                     Menu();
                     Console.Write("Thoat!!!\n");
                     return 0;
-
             }
             return 1;
         }
-        static void NhapTapU()
+        public void NhapTapU()
         {
             int kt;
             Console.Write("\n 1. Nhap Tap Vu tru U \n");
@@ -228,7 +206,7 @@ namespace Lab2
             U = new set(ktU, no);
             U.display();
         }
-        static void NhapTapA()
+        public void NhapTapA()
         {
             int kt;
             Console.Write("\n 1. Nhap Tap hop A \n");
@@ -263,7 +241,7 @@ namespace Lab2
 
             A.display();
         }
-        static void NhapTapB()
+        public void NhapTapB()
         {
             int kt;
             Console.Write("\n 1. Nhap Tap hop B \n");
@@ -297,8 +275,7 @@ namespace Lab2
             B = new set(ktB, nb);
             B.display();
         }
-
-        static void XuatTatcaTapConChar()
+        public void XuatTatcaTapConChar()
         {
             File.Delete(FileName);// Xoa nội dung trên file cũ
             while (final == 1)
@@ -329,14 +306,13 @@ namespace Lab2
                 Sinh();
             }
         }
-        static void khoitao()
+        public void khoitao()
         {
             for (int i = 1; i <= n; i++)
                 a[i] = 0;
 
         }
-
-        static void Sinh()
+        public void Sinh()
         {
             int i = n;
 
@@ -355,4 +331,3 @@ namespace Lab2
         }
     }
 }
-
