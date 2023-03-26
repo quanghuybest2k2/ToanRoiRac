@@ -29,22 +29,24 @@ namespace TryLab2
                 Console.WriteLine("Nhập thông tin tập U, mỗi phần tử cách nhau bởi dấu phẩy:");
                 string[] U_arr = Console.ReadLine().Split(',');
                 this._u = Array.ConvertAll(U_arr, int.Parse);
-
+                SapXep(this._u);
                 // Nhập thông tin tập A
                 Console.WriteLine("Nhập tập A, mỗi phần tử cách nhau bởi dấu phẩy:");
                 string[] A_arr = Console.ReadLine().Split(',');
                 this._a = Array.ConvertAll(A_arr, int.Parse);
-
+                SapXep(this._a);
                 // Nhập thông tin tập B
                 Console.WriteLine("Nhập tập B, mỗi phần tử cách nhau bởi dấu phẩy:");
                 string[] B_arr = Console.ReadLine().Split(',');
                 this._b = Array.ConvertAll(B_arr, int.Parse);
+                SapXep(this._b);
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Lỗi nhập {ex.Message}");
             }
         }
+        // Xuất mảng
         public void Xuat()
         {
             try
@@ -56,6 +58,23 @@ namespace TryLab2
             catch (Exception ex)
             {
                 Console.WriteLine("Lỗi xuất");
+            }
+        }
+        //Sắp xếp mảng
+        private void SapXep(int[] arr)
+        {
+            int temp;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = 0; j < arr.Length; j++)
+                {
+                    if (arr[i] < arr[j])
+                    {
+                        temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
             }
         }
     }
